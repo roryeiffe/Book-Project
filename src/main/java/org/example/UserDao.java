@@ -1,12 +1,14 @@
 package org.example;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface UserDao {
-    void register(User user) throws SQLException;
+    int register(User user) throws SQLException;
     User login(User user) throws SQLException;
-    void addToCart(int id) throws SQLException;
-    void purchaseOrCancel(User user, int choice) throws SQLException;
-    void selectCategory() throws SQLException;
-    void getMoreInfo() throws SQLException;
+    void addToCart(User user, int id) throws SQLException;
+    void purchaseOrCancel(User user, int choice, List<Book> books) throws SQLException;
+    List<Book> getAllBooksInCart(User user) throws SQLException;
+//    void selectCategory() throws SQLException;
+//    void getMoreInfo() throws SQLException;
 }

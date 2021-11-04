@@ -16,6 +16,7 @@ public class App
 
         // DAO's:
         BookDao bookDao = BookDaoFactory.getBookDao();
+        UserDao userDao = UserDaoFactory.getUserDao();
 
         // variables to use for user input
         Scanner numberReader = new Scanner(System.in);
@@ -24,6 +25,8 @@ public class App
         // variables to store output from table:
         List<Book> books;
         Book book;
+
+        User user = null;
 
         boolean flag = true;
 
@@ -38,13 +41,39 @@ public class App
             switch (input) {
                 case (1):
                     // TODO Register user here:
+                    System.out.print("What is your name: ");
+                    String name = stringReader.nextLine();
+                    System.out.print("What is your password: ");
+                    String password = stringReader.nextLine();
+
+                    user = new User(name,password);
+                    int id = userDao.register(user);
+
+                    System.out.println("Your new id is " + id + ". You will need this to log in.");
+
                     break;
                 case (2):
                     // TODO Login user here:
+                    System.out.print("Please enter your user id: ");
+                    id = numberReader.nextInt();
+                    System.out.print("Please enter your password: ");
+                    password = stringReader.nextLine();
+                    user = new User(id,password);
+                    user = userDao.login(user);
+                    if(user == null){
+                        System.out.println("Something went wrong with log in.");
+                    }
+                    else{
+                        System.out.println("Log in sucessful!");
+                    }
                     break;
                 case (3):
                     // TODO make sure user is logged in
                     System.out.println("Which category would you like to view?");
+                    List<String> categories = bookDao.getAllCategories();
+                    for(String category:categories) {
+                        System.out.println(category);
+                    }
                     String category = stringReader.nextLine();
                     books = bookDao.getAllByCategory(category);
                     System.out.println();
@@ -55,10 +84,15 @@ public class App
                     int bookId = numberReader.nextInt();
                     book = bookDao.getBookById(bookId);
                     System.out.println("\n" + book.fullString());
+                    if(user == null) {
+                        System.out.println("Please sign in to add to cart.");
+                        break;
+                    }
                     System.out.println("\nWould you like to add this book to cart?\n1 - buy\n2 - cancel");
                     int choice = numberReader.nextInt();
                     if (choice == 1) {
                         // TODO: Add book to cart
+                        userDao.addToCart(user, bookId);
                     } else if (choice == 2) {
                         System.out.println("Cancelled.");
                     }
@@ -67,7 +101,30 @@ public class App
                     // TODO: Fetch all books in cart and print out
                     // TODO: print total price
 
+                    if(user == null){
+                        System.out.println("Please log in to view your cart.");
+                        break;
+                    }
+                    books = userDao.getAllBooksInCart(user);
+                    double total = 0;
+                    for(Book book1: books) {
+                        System.out.println(book1.simpleString());
+                        total += book1.getPrice();
+                    }
+                    System.out.println("Your total cart comes to $" + total);
+
                     System.out.println("Would you like to check out?");
+                    System.out.println("yes - 1");
+                    System.out.println("cancel order - 2");
+                    System.out.println("keep shopping - 3");
+                    choice = numberReader.nextInt();
+                    if(choice == 3) {
+                        break;
+                    }
+                    // purchase or cancel the order:
+                    userDao.purchaseOrCancel(user, choice, books);
+
+
                     break;
                 case 5:
                     flag = false;

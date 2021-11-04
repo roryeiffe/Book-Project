@@ -10,4 +10,5 @@ public interface BookDao {
     public List<Book> getAll() throws SQLException;
     public List<Book> getAllByCategory(String category) throws SQLException;
     public Book getBookById(int id) throws SQLException;
+    public List<String> getAllCategories() throws SQLException;
 }

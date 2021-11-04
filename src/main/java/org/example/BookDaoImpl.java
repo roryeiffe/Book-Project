@@ -97,4 +97,18 @@ public class BookDaoImpl implements BookDao{
         }
         return book;
     }
+
+    @Override
+    public List<String> getAllCategories() throws SQLException {
+        String sql = "SELECT DISTINCT category from book";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        List<String> categories = new ArrayList<>();
+        while(resultSet.next()){
+            String category = resultSet.getString(1);
+            categories.add(category);
+        }
+        return categories;
+
+    }
 }
