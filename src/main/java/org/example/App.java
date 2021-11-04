@@ -101,5 +101,14 @@ public class App
         System.out.println("\nGet a singular book:");
         Book book = bookDao.getBookById(3);
         System.out.println(book.toString());
+
+        // update book quantity:
+        book = bookDao.getBookById(1);
+        System.out.println("Book quantity: " + book.getQuantity());
+        book.setQuantity(book.getQuantity() - 1);
+        bookDao.update(book);
+        book = bookDao.getBookById(book.getId());
+        System.out.println("New book quantity: " + book.getQuantity());
+
     }
 }

@@ -22,7 +22,7 @@ public class BookDaoImpl implements BookDao{
         preparedStatement.setInt(1,book.getQuantity());
         preparedStatement.setInt(2,book.getId());
         int count = preparedStatement.executeUpdate();
-        if (count != 0) {
+        if (count != 1) {
             System.out.println("Oops! Something went wrong with the update!");
         }
     }
