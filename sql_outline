@@ -2,8 +2,8 @@ CREATE TABLE book (id INTEGER PRIMARY KEY AUTO_INCREMENT, title CHAR(50), author
 
 CREATE TABLE user(id INTEGER PRIMARY KEY AUTO_INCREMENT, name CHAR(50), password CHAR(50));
 
-CREATE TABLE cart(user_id INTEGER, book_id INTEGER, CONSTRAINT fk_user FOREIGN KEY user_id REFERENCES user(id));
-ALTER TABLE cart add FOREIGN KEY book_id REFERENCES book(id));
+CREATE TABLE cart(user_id INTEGER, book_id INTEGER, CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id));
+ALTER TABLE cart add FOREIGN KEY (book_id) REFERENCES book(id);
 
 
 
