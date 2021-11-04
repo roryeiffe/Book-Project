@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+
 // This class ensures that only one instance of the connection factory is created.
 // So, whenever we need a connection, we can access it using this class:
 
@@ -30,5 +31,4 @@ public class ConnectionFactory {
         }
         return connection;
     }
-
 }
