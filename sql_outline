@@ -4,6 +4,7 @@ insert into book values(0747532699, 'Harry Potter and the Sorcerer's Stone', 'J.
 insert into book values(
 
 
-CREATE TABLE user(id INTEGER PRIMARY KEY, name CHAR(50),
+CREATE TABLE user(id INTEGER PRIMARY KEY, name CHAR(50), password CHAR(50));
 
-CREATE TABLE order
+CREATE TABLE cart(user_id INTEGER, book_id INTEGER, CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id));
+ALTER TABLE cart add FOREIGN KEY (book_id) REFERENCES book(id);
