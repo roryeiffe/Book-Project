@@ -2,11 +2,20 @@ CREATE TABLE book (id INTEGER PRIMARY KEY AUTO_INCREMENT, title CHAR(50), author
 
 CREATE TABLE user(id INTEGER PRIMARY KEY AUTO_INCREMENT, name CHAR(50), password CHAR(50));
 
-CREATE TABLE cart(user_id INTEGER, book_id INTEGER, CONSTRAINT fk_user FOREIGN KEY user_id REFERENCES user(id));
-ALTER TABLE cart add FOREIGN KEY book_id REFERENCES book(id));
+CREATE TABLE cart(user_id INTEGER, book_id INTEGER, CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES user(id));
+ALTER TABLE cart add FOREIGN KEY (book_id) REFERENCES book(id);
 
 
 
 
-insert into book values(0747532699, 'Harry Potter and the Sorcerer's Stone', 'J.K. Rowling', 'fantasy', 'Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry.', 7);
-insert into book values(
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+    VALUES ('Title 1', 'Author 1', 'fiction', 'Description 1', 75.65, 12345, 100);
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+    VALUES ('Title 2', 'Author 2', 'fiction', 'Description 2', 80.00, 11111, 900);
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+    VALUES ('Title 3', 'Author 3', 'non-fiction', 'Description 3', 85.00, 11112, 10);
