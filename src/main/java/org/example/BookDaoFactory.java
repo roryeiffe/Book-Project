@@ -1,5 +1,6 @@
 package org.example;
 
+// this class ensures that only one instance of the class is created:
 public class BookDaoFactory {
     private static BookDaoImpl dao = null;
 

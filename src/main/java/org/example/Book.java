@@ -16,6 +16,7 @@ public class Book {
     // quantity is how many of these books are in the database:
     private int quantity;
 
+    // constructor that takes in all fields of the book class:
     public Book(int id, String title, String author, String category, String description, double price, int isbn, int quantity) {
         this.id = id;
         this.title = title;
@@ -27,6 +28,7 @@ public class Book {
         this.quantity = quantity;
     }
 
+    // Getter and Setter Methods:
     public int getId() {
         return id;
     }
@@ -102,6 +104,7 @@ public class Book {
         return title + " by " + author + ", price: $" + priceString+ ", category: " + category + ", description: " + description + ", " + quantity + " left in stock";
     }
 
+    // default string that prints out all attributes of the book:
     @Override
     public String toString() {
         return "Book{" +

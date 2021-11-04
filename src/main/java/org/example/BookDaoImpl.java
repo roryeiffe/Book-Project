@@ -49,6 +49,7 @@ public class BookDaoImpl implements BookDao{
         return books;
     }
 
+    // given a category, return all books that belong to that certain category:
     @Override
     public List<Book> getAllByCategory(String category) throws SQLException {
         List<Book> books = new ArrayList<>();
@@ -71,6 +72,8 @@ public class BookDaoImpl implements BookDao{
         return books;
     }
 
+    // given an id number, return the singular book that corresponds to that
+    // id:
     @Override
     public Book getBookById(int id) throws SQLException {
         Book book = null;
