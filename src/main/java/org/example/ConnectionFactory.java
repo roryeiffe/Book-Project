@@ -19,10 +19,9 @@ public class ConnectionFactory {
     public static Connection getConnection() {
         if (connection == null) {
             // use dbConfig.properties to import our login data:
-            ResourceBundle bundle = ResourceBundle.getBundle("com.company/dbConfig");
-            String url = bundle.getString("url");
-            String username = bundle.getString("username");
-            String password = bundle.getString("password");
+            String url = "jdbc:mysql://localhost:3306/bookProject";
+            String username = "root";
+            String password = "roryeiffedatabase9(";
             try {
                 connection = DriverManager.getConnection(url,username,password);
             } catch (SQLException e) {

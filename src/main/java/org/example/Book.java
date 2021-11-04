@@ -93,12 +93,26 @@ public class Book {
 
     // return a simple string with just the title, author, and isbn:
     public String simpleString() {
-        return title + ", by " + author + " (ISBN: " + isbn + ")";
+        return "(" + id + ") " + title + ", by " + author + " (ISBN: " + isbn + ")";
     }
 
     // return a full string displaying most of the book's attributes:
     public String fullString() {
         String priceString = String.format("%.02f", price);
         return title + " by " + author + ", price: $" + priceString+ ", category: " + category + ", description: " + description + ", " + quantity + " left in stock";
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", category='" + category + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", isbn=" + isbn +
+                ", quantity=" + quantity +
+                '}';
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 public interface BookDao {
     // update a book in the db table:
     public void update(Book book) throws SQLException;
-    public List<Book> getAll();
-    public List<Book> getAllByCategory(String category);
-    public Book getBookById(int id);
+    public List<Book> getAll() throws SQLException;
+    public List<Book> getAllByCategory(String category) throws SQLException;
+    public Book getBookById(int id) throws SQLException;
 }

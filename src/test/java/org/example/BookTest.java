@@ -34,7 +34,7 @@ public class BookTest {
 
     @Test
     public void testSimpleBookPrint() {
-        assertEquals("Harry Potter, by JK Rowling (ISBN: 12345678)", book.simpleString());
+        assertEquals("(1) Harry Potter, by JK Rowling (ISBN: 12345678)", book.simpleString());
     }
 
     @Test
