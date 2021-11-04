@@ -1,9 +1,12 @@
-CREATE TABLE book (isbn INTEGER PRIMARY KEY, title CHAR(50), author CHAR(50), category CHAR(50), description CHAR(100), price DECIMAL(19,2), quantity INTEGER);
+CREATE TABLE book (id INTEGER PRIMARY KEY AUTO_INCREMENT, title CHAR(50), author CHAR(50), category CHAR(50), description CHAR(100), price DECIMAL(19,2), isbn INTEGER, quantity INTEGER);
+
+CREATE TABLE user(id INTEGER PRIMARY KEY AUTO_INCREMENT, name CHAR(50), password CHAR(50));
+
+CREATE TABLE cart(user_id INTEGER, book_id INTEGER, CONSTRAINT fk_user FOREIGN KEY user_id REFERENCES user(id));
+ALTER TABLE cart add FOREIGN KEY book_id REFERENCES book(id));
+
+
+
 
 insert into book values(0747532699, 'Harry Potter and the Sorcerer's Stone', 'J.K. Rowling', 'fantasy', 'Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry.', 7);
 insert into book values(
-
-
-CREATE TABLE user(id INTEGER PRIMARY KEY, name CHAR(50),
-
-CREATE TABLE order
