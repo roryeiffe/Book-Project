@@ -31,11 +31,13 @@ public class App
         boolean flag = true;
 
         while(flag) {
+            System.out.println("***********************");
             System.out.println("PRESS 1 to resister");
             System.out.println("PRESS 2 to login");
             System.out.println("PRESS 3 to browse books");
             System.out.println("PRESS 4 to view cart/check out");
             System.out.println("PRESS 5 to quit");
+            System.out.println("***********************");
             System.out.print("Please select an option: ");
             int input = numberReader.nextInt();
             switch (input) {
@@ -48,8 +50,9 @@ public class App
 
                     user = new User(name,password);
                     int id = userDao.register(user);
+                    user.setId(id);
 
-                    System.out.println("Your new id is " + id + ". You will need this to log in.");
+                    System.out.println("\nYour new id is " + id + ". You will need this to log in.\n");
 
                     break;
                 case (2):
@@ -61,10 +64,10 @@ public class App
                     user = new User(id,password);
                     user = userDao.login(user);
                     if(user == null){
-                        System.out.println("Something went wrong with log in.");
+                        System.out.println("\nSomething went wrong with log in.\n");
                     }
                     else{
-                        System.out.println("Log in sucessful!");
+                        System.out.println("\nLog in sucessful!\n");
                     }
                     break;
                 case (3):
@@ -85,7 +88,7 @@ public class App
                     book = bookDao.getBookById(bookId);
                     System.out.println("\n" + book.fullString());
                     if(user == null) {
-                        System.out.println("Please sign in to add to cart.");
+                        System.out.println("\nPlease sign in to add to cart.\n");
                         break;
                     }
                     System.out.println("\nWould you like to add this book to cart?\n1 - buy\n2 - cancel");
@@ -102,7 +105,7 @@ public class App
                     // TODO: print total price
 
                     if(user == null){
-                        System.out.println("Please log in to view your cart.");
+                        System.out.println("\nPlease log in to view your cart.\n");
                         break;
                     }
                     books = userDao.getAllBooksInCart(user);
@@ -111,12 +114,12 @@ public class App
                         System.out.println(book1.simpleString());
                         total += book1.getPrice();
                     }
-                    System.out.println("Your total cart comes to $" + total);
-
+                    System.out.println("\nYour total cart comes to $" + total);
                     System.out.println("Would you like to check out?");
                     System.out.println("yes - 1");
                     System.out.println("cancel order - 2");
                     System.out.println("keep shopping - 3");
+                    System.out.print("=> ");
                     choice = numberReader.nextInt();
                     if(choice == 3) {
                         break;

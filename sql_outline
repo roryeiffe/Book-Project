@@ -17,7 +17,52 @@ INSERT INTO book
     (title, author, category, description, price, isbn, quantity)
     VALUES ('Title 3', 'Author 3', 'non-fiction', 'Description 3', 85.00, 11112, 10);
 
-    INSERT INTO book
-        (title, author, category, description, price, isbn, quantity)
-        VALUES ('Title 4', 'Author 4', 'non-fiction', 'Description 4', 85.00, 11112, 0);
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+    VALUES ('Title 4', 'Author 4', 'non-fiction', 'Description 4', 85.00, 11112, 0);
+
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+VALUES('Harry Potter and the Sorcerer's Stone', 'JK Rowling', 'fantasy', 'Harry goes to Hogwarts', 12.50, 1213453, 100);
+
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+VALUES('Harry Potter and the Chamber of Secrets', 'JK Rowling', 'fantasy', 'Harry solves a mystery about snakes', 11.50, 1213454, 100);
+
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+VALUES('Harry Potter and the Prisoner of Askaban', 'JK Rowling', 'fantasy', 'Harry befriends a dog', 10.50, 1213455, 100);
+
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+VALUES('Harry Potter and the Goblet of Fire', 'JK Rowling', 'fantasy', 'Harry plays games with dragons', 11.50, 1213456, 100);
+
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+VALUES('Harry Potter and the Order of the Phoenix', 'JK Rowling', 'fantasy', 'Harry makes a secret club', 11.50, 1213457, 100);
+
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+VALUES('Harry Potter and the Half Blood Prince', 'JK Rowling', 'fantasy', 'Harry cheats in Potions class', 11.50, 1213458, 100);
+
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+VALUES('Harry Potter and the Deathly Hallows', 'JK Rowling', 'fantasy', 'Harry fights in a war', 11.50, 1213459, 100);
+
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+VALUES('Diary of a Wimpy Kid', 'Jeff Kinney', 'comedy', 'Greg Heffley bullies his friend Rowley', 75.45, 122414, 100);
+
+
+INSERT INTO book
+    (title, author, category, description, price, isbn, quantity)
+VALUES('Diary of a Wimpy Kid: Dog Days', 'Jeff Kinney', 'comedy', 'Greg Heffley tries to survive the summer', 60.45, 122424, 100);
 
