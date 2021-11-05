@@ -1,4 +1,4 @@
-package org.example;
+package org.example.User;
 
 public class UserDaoFactory {
     private static UserDao dao;

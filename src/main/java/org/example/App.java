@@ -1,5 +1,12 @@
 package org.example;
 
+import org.example.Book.Book;
+import org.example.Book.BookDao;
+import org.example.Book.BookDaoFactory;
+import org.example.User.User;
+import org.example.User.UserDao;
+import org.example.User.UserDaoFactory;
+
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
@@ -67,7 +74,8 @@ public class App
                         System.out.println("\nSomething went wrong with log in.\n");
                     }
                     else{
-                        System.out.println("\nLog in sucessful!\n");
+                        System.out.println("\nLog in sucessful!");
+                        System.out.println("Welcome " + user.getName() + "!\n");
                     }
                     break;
                 case (3):

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Book;
 
 // this class ensures that only one instance of the class is created:
 public class BookDaoFactory {

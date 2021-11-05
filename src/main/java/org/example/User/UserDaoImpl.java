@@ -1,4 +1,9 @@
-package org.example;
+package org.example.User;
+
+import org.example.Book.Book;
+import org.example.Book.BookDao;
+import org.example.Book.BookDaoFactory;
+import org.example.ConnectionFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
